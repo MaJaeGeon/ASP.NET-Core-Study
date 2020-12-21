@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MySqlConnector;
 using MyWeb.HomeWeb.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,7 +27,15 @@ namespace MyWeb.HomeWeb.Controllers
 
         public IActionResult TicketList()
         {
-            return View();
+            var status = "In Progress";
+            return View(TicketModel.GetList(status));
+        }
+
+        public IActionResult TicketUpdate([FromForm]TicketModel model)
+        {
+            model.Update();
+
+            return RedirectToAction("TicketList");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
