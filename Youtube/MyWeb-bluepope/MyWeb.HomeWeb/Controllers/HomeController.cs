@@ -25,6 +25,7 @@ namespace MyWeb.HomeWeb.Controllers
             return View();
         }
 
+
         public IActionResult TicketList()
         {
             var status = "In Progress";
