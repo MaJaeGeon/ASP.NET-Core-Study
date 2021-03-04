@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NetCore.Web.Models
+namespace NetCore.Data.ViewModels
 {
     public class LoginInfo
     {
